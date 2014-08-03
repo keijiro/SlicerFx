@@ -51,16 +51,16 @@ public class SlicerFx : MonoBehaviour
     public Color emission { get { return _emission; } set { _emission = value; } }
 
     // Interval between stripes
-    [SerializeField] float _interval = 1.0f;
+    [SerializeField] float _interval = 0.2f;
     public float interval { get { return _interval; } set { _interval = value; } }
 
-    // Threshold for clipping
-    [SerializeField] float _threshold = 0.5f;
-    public float threshold { get { return _threshold; } set { _threshold = value; } }
+    // Width of stripes
+    [SerializeField] float _width = 0.2f;
+    public float width { get { return _width; } set { _width = value; } }
 
     // Scroll speed
-    [SerializeField] float _scrollSpeed = 1.0f;
-    public float scrollSpeed { get { return _scrollSpeed; } set { _scrollSpeed = value; } }
+    [SerializeField] float _speed = 1.0f;
+    public float speed { get { return _speed; } set { _speed = value; } }
 
     // Private shader variables
     Shader shader;
@@ -98,7 +98,7 @@ public class SlicerFx : MonoBehaviour
         Shader.SetGlobalColor(albedo2ID, _albedoBack);
         Shader.SetGlobalColor(emissionID, _emission);
 
-        var param = new Vector4(_scrollSpeed, _interval, _threshold, 0);
+        var param = new Vector4(_speed, _interval, _width, 0);
         Shader.SetGlobalVector(paramsID, param);
 
         if (_mode == SlicerMode.Directional)
