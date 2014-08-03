@@ -38,12 +38,16 @@ public class SlicerFx : MonoBehaviour
     [SerializeField] Vector3 _origin = Vector3.zero;
     public Vector3 origin { get { return _origin; } set { _origin = value; } }
 
-    // Albedo color
-    [SerializeField] Color _albedo = new Color(0.5f, 0.5f, 0.5f, 0);
-    public Color albedo { get { return _albedo; } set { _albedo = value; } }
+    // Albedo color (front face)
+    [SerializeField] Color _albedoFront = new Color(0.6f, 0.6f, 0.6f, 1);
+    public Color albedoFront { get { return _albedoFront; } set { _albedoFront = value; } }
+
+    // Albedo color (back face)
+    [SerializeField] Color _albedoBack = new Color(0.4f, 0.4f, 0.4f, 1);
+    public Color albedoBack { get { return _albedoBack; } set { _albedoBack = value; } }
 
     // Emission color
-    [SerializeField] Color _emission = new Color(0.2f, 0.2f, 0.2f, 0);
+    [SerializeField] Color _emission = new Color(0.2f, 0.2f, 0.2f, 1);
     public Color emission { get { return _emission; } set { _emission = value; } }
 
     // Interval between stripes
@@ -60,7 +64,8 @@ public class SlicerFx : MonoBehaviour
 
     // Private shader variables
     Shader shader;
-    int albedoID;
+    int albedo1ID;
+    int albedo2ID;
     int emissionID;
     int paramsID;
     int vectorID;
@@ -69,7 +74,8 @@ public class SlicerFx : MonoBehaviour
     {
         shader = Shader.Find("Hidden/SlicerFX");
 
-        albedoID   = Shader.PropertyToID("_SlicerAlbedo");
+        albedo1ID  = Shader.PropertyToID("_SlicerAlbedo1");
+        albedo2ID  = Shader.PropertyToID("_SlicerAlbedo2");
         emissionID = Shader.PropertyToID("_SlicerEmission");
         paramsID   = Shader.PropertyToID("_SlicerParams");
         vectorID   = Shader.PropertyToID("_SlicerVector");
@@ -88,7 +94,8 @@ public class SlicerFx : MonoBehaviour
 
     void Update()
     {
-        Shader.SetGlobalColor(albedoID, _albedo);
+        Shader.SetGlobalColor(albedo1ID, _albedoFront);
+        Shader.SetGlobalColor(albedo2ID, _albedoBack);
         Shader.SetGlobalColor(emissionID, _emission);
 
         var param = new Vector4(_scrollSpeed, _interval, _threshold, 0);

@@ -1533,10 +1533,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mode: 0
-  _direction: {x: 1, y: 0, z: 1}
+  _direction: {x: 1, y: 0, z: .200000003}
   _origin: {x: 0, y: 0, z: 0}
-  _albedo: {r: .45588237, g: .45588237, b: .45588237, a: 0}
+  _albedoFront: {r: .5, g: .5, b: .5, a: 0}
+  _albedoBack: {r: .132352948, g: .132352948, b: .132352948, a: 0}
   _emission: {r: .75, g: .154411778, b: .154411778, a: 0}
-  _interval: .5
-  _threshold: .5
+  _interval: .209999993
+  _threshold: .270000011
   _scrollSpeed: 1
