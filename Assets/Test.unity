@@ -1724,7 +1724,21 @@ MonoBehaviour:
     atime7: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  width: .200000003
+  width:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: .999999881
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: .196491286
+      inSlope: -2.63788462
+      outSlope: -2.63788462
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
   switchSpeed: 3
 --- !u!114 &1758768953
 MonoBehaviour:

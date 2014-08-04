@@ -28,8 +28,7 @@ public class SlicerFxSwitcher : MonoBehaviour
     public Gradient albedoFront;
     public Gradient albedoBack;
     public Gradient emission;
-    [Range(0,1)]
-    public float width = 0.2f;
+    public AnimationCurve width = AnimationCurve.Linear(0, 1, 1, 0.2f);
     public float switchSpeed = 5;
 
     SlicerFx fx;
@@ -64,7 +63,7 @@ public class SlicerFxSwitcher : MonoBehaviour
             fx.albedoFront = albedoFront.Evaluate(parameter);
             fx.albedoBack = albedoBack.Evaluate(parameter);
             fx.emission = emission.Evaluate(parameter);
-            fx.width = Mathf.Lerp(1, width, parameter);
+            fx.width = width.Evaluate(parameter);
         }
     }
 
