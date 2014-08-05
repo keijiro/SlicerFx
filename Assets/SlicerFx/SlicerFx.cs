@@ -62,8 +62,10 @@ public class SlicerFx : MonoBehaviour
     [SerializeField] float _speed = 1.0f;
     public float speed { get { return _speed; } set { _speed = value; } }
 
+    // Reference to the shader.
+    [SerializeField] Shader shader;
+
     // Private shader variables
-    Shader shader;
     int albedo1ID;
     int albedo2ID;
     int emissionID;
@@ -72,8 +74,6 @@ public class SlicerFx : MonoBehaviour
 
     void Awake()
     {
-        shader = Shader.Find("Hidden/SlicerFX");
-
         albedo1ID  = Shader.PropertyToID("_SlicerAlbedo1");
         albedo2ID  = Shader.PropertyToID("_SlicerAlbedo2");
         emissionID = Shader.PropertyToID("_SlicerEmission");

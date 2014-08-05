@@ -1584,6 +1584,7 @@ MonoBehaviour:
   _interval: .209999993
   _width: .200000003
   _speed: 1
+  shader: {fileID: 4800000, guid: a7273e52e54b24131911224fbd89245b, type: 3}
 --- !u!114 &1758768952
 MonoBehaviour:
   m_ObjectHideFlags: 0
