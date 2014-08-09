@@ -49,8 +49,9 @@ Shader "Hidden/SlicerFX"
         // Moving wave.
         w -= _Time.y * params.x;
 
-        // Divide with the interval.
-        w = mod(w, params.y) / params.y;
+        // Get modulo (w % params.y / params.y)
+        w /= params.y;
+        w = w - floor(w);
 
         // Clip with the threshold.
         clip(params.z - w);
