@@ -83,13 +83,13 @@ public class SlicerFx : MonoBehaviour
 
     void OnEnable()
     {
-        camera.SetReplacementShader(shader, null);
+        GetComponent<Camera>().SetReplacementShader(shader, null);
         Update();
     }
 
     void OnDisable()
     {
-        camera.ResetReplacementShader();
+        GetComponent<Camera>().ResetReplacementShader();
     }
 
     void Update()
